@@ -1,0 +1,16 @@
+.containerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100vh;
+
+  padding: 0 16px;
+}
+
+.dimWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  height: fit-content;
+  width: 100%;
+  max-width: 450px;
+}

@@ -1,0 +1,20 @@
+.button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: $accent-light;
+  color: $bg-core-light;
+
+  border: none;
+  outline: none;
+
+  &:active {
+    background-color: $accent-dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:active {
+      background-color: $accent-light;
+    }
+    background-color: $accent-dark;
+  }
+}

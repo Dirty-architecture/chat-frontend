@@ -1,0 +1,8 @@
+.link {
+  color: $accent-approximate-light;
+
+  @media (prefers-color-scheme: dark) {
+
+    color: $accent-approximate-dark;
+  }
+}
