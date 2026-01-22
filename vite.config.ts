@@ -4,14 +4,17 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import path from 'path';
 
 // https://vite.dev/config/
+
 export default defineConfig({
-    plugins: [react(), tsconfigPaths(),],
+    plugins: [react(), tsconfigPaths()],
     css: {
         preprocessorOptions: {
             scss: {
-                includePaths: [path.resolve(__dirname, "src")],
-                additionalData: `@use "@app/styles/variables" as *;`
-            },
-        },
-    },
-})
+                loadPaths: [path.resolve(__dirname, "src")],
+                additionalData: `
+          @use "app/common/styles/variables" as *;
+        `
+            }
+        }
+    }
+});

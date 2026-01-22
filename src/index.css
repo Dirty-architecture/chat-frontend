@@ -1,7 +1,72 @@
-:root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+@import "modern-normalize";
 
-    color-scheme: light dark;
+*, *::before, *::after {
+    box-sizing: border-box;
+
 }
+
+* {
+    --bg-core-light: #ffffff;
+    --bg-main-light: #eef5ff;
+    --bg-core-dark: #26282B;
+    --bg-main-dark: #191A1C;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--bg-core-light);
+
+
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--bg-core-dark);
+        color: var(--bg-core-light);
+    }
+}
+
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+ul, ol, dl {
+    list-style: none;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+
+
