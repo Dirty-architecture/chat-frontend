@@ -1,8 +1,8 @@
 import type {ReactNode} from 'react';
-import AuthorizationForm from "@/app/module/user/case/authoriztion/component/form";
-import UnauthorizedWrapper from "@/app/module/user/wrapper";
-import AlternativeActions from "@/app/module/user/case/authoriztion/component/alternative-actions";
-import Hr from "@/app/module/user/case/authoriztion/component/hr";
+import AuthorizationForm from "./component/form";
+import UnauthorizedWrapper from "@/app/module/user/general/wrapper";
+import AlternativeActions from "./component/alternative-actions";
+import Hr from "@/app/module/user/general/hr";
 
 
 const AuthorizationRoute = (): ReactNode => {
