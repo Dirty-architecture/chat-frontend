@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router";
 import {ROUTER_PATH} from "@/app/common/const/router.ts";
-import AuthorizationRoute from "@/app/module/user/case/authoriztion/route.tsx";
+import {AuthorizationRoute} from "@/app/module/user/case/authoriztion";
 import RegistrationRoute from "@/app/module/user/case/registration/route.tsx";
 import ChatRoute from "@/app/module/chat/route.tsx";
 import HomeRoute from "@/app/module/home/route.tsx";
