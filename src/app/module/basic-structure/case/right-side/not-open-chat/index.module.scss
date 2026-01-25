@@ -1,0 +1,19 @@
+.noOpenChat {
+
+  display: flex;
+  justify-content: center;
+
+  align-content: center;
+  height: 100%;
+}
+
+.text {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  & > svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}

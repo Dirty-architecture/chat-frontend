@@ -1,6 +1,6 @@
 import type {ReactNode} from 'react';
 
-const HomeRoute = (): ReactNode => {
+const ChatList = (): ReactNode => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const HomeRoute = (): ReactNode => {
     );
 };
 
-export default HomeRoute;
+export default ChatList;
