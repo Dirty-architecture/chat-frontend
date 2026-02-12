@@ -1,5 +1,5 @@
-interface IFriendEntity {
-    id: bigint;
+interface IMessageEntity {
+    id: string;
     chatId: string;
     senderId: string;
     body: string;
@@ -8,4 +8,4 @@ interface IFriendEntity {
     deletedAt?: Date | null;
 }
 
-export type {IFriendEntity}
+export type {IMessageEntity}
