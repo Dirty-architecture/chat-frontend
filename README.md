@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# Запуск React-приложения на Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот документ описывает, как установить зависимости и запустить React‑приложение, созданное с помощью **Vite**.
 
-Currently, two official plugins are available:
+## 📦 Требования
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Перед началом убедитесь, что у вас установлены:
 
-## React Compiler
+* **Node.js** версии **20.x** или выше
+  Проверить версию:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  ```bash
+  node -v
+  ```
+* **npm** (обычно устанавливается вместе с Node.js) или **yarn / pnpm**
 
-## Expanding the ESLint configuration
+Рекомендуется использовать последнюю LTS‑версию Node.js.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Установка и запуск
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Клонирование репозитория
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/jakiichu/movie-catalog-react
+cd only
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Установка зависимостей
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+С помощью **npm**:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+Или с помощью **yarn**:
+
+```bash
+yarn
+```
+
+Или **pnpm**:
+
+```bash
+pnpm install
+```
+
+### 3. Запуск приложения в режиме разработки
+
+```bash
+npm run dev
+```
+
+После запуска в терминале появится адрес, обычно:
+
+```
+http://localhost:5173
+```
+
+Откройте его в браузере — приложение готово к работе 🎉
+
+## 🛠 Доступные скрипты
+
+* `npm run dev` — запуск в режиме разработки
+* `npm run build` — сборка проекта для продакшена
+* `npm run preview` — локальный просмотр продакшн‑сборки
+* `npm run lint` — проверка кода (если настроен ESLint)
+
+## ⚙️ Сборка проекта
+
+Для сборки оптимизированной версии приложения выполните:
+
+```bash
+npm run build
+````
+
+Результат будет сохранён в папке `dist/`.
+
+## ❗ Возможные проблемы
+
+* **Ошибка версии Node.js** — обновите Node.js до LTS‑версии
+* **Порт занят** — Vite автоматически предложит другой порт
+* **Зависимости не устанавливаются** — попробуйте удалить `node_modules` и `package-lock.json`, затем выполнить
+  `npm install`
+
+## Методология БЭМ (BEM)
+
+В проекте для именования CSS‑классов используется методология БЭМ (Block — Element — Modifier). Это помогает
+поддерживать единый стиль, улучшает читаемость стилей и упрощает масштабирование интерфейса.
+
+### Правила именования
+
+- Блок — независимая сущность интерфейса:
+  block
+- Элемент — часть блока, не существует отдельно:
+  block__element
+- Модификатор — состояние/вариация блока или элемента:
+  block--modifier или block__element--modifier
