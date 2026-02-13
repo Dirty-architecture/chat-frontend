@@ -7,11 +7,11 @@ import s from './index.module.scss'
 
 const MainRoute = (): ReactNode => {
 
-    const isTablet = useMediaQuery(`(max-width: ${BREAKPOINTS.laptop}px)`);
+    const isLaptop = useMediaQuery(`(max-width: ${BREAKPOINTS.laptop}px)`);
 
     return (
         <>
-            {isTablet ? <ChatSidebar className={s['chat-sidebar__desktop']}/> : <NotOpenChat/>}
+            {isLaptop ? <ChatSidebar className={s['chat-sidebar__desktop']}/> : <NotOpenChat/>}
         </>
     );
 };
