@@ -1,0 +1,34 @@
+.settings-modal {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.settings-avatar {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.settings-bottom {
+  flex-direction: row;
+
+  justify-content: space-between;
+  display: flex;
+  gap: 12px;
+}
+
+.settings-link {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  gap: 12px;
+
+  & > a {
+    cursor: pointer;
+  }
+}

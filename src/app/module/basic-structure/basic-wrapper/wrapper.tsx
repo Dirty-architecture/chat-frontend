@@ -6,28 +6,31 @@ import {useMediaQuery} from "@/app/utils/useMediaQuery.ts";
 import {BREAKPOINTS} from "@/app/common/const/breakpoints.ts";
 import ChatSidebar from "@/app/module/general/chat-sidebar";
 import cn from "@/app/utils/cn.ts";
+import ModalRoot from "@/app/common/store/component.tsx";
 
 const BasicWrapper = (): ReactNode => {
     const isTablet = useMediaQuery(`(max-width: ${BREAKPOINTS.laptop}px)`);
-    console.log(isTablet)
 
     return (
-        <div className={s['basic-wrapper']}>
-            {isTablet ?
-                <article className={cn(s['basic-wrapper__tablet'], dimStyle.dimWrapper)}>
-                    <Outlet/>
-                </article>
-                :
-                <>
-                    <article className={cn(s['basic-wrapper__left'], dimStyle.dimWrapper)}>
-                        <ChatSidebar className={s['chat-sidebar__desktop']}/>
-                    </article>
-                    <article className={cn(s['basic-wrapper__right'], dimStyle.dimWrapper)}>
+        <>
+            <div className={s['basic-wrapper']}>
+                {isTablet ?
+                    <article className={cn(s['basic-wrapper__tablet'], dimStyle.dimWrapper)}>
                         <Outlet/>
                     </article>
-                </>
-            }
-        </div>
+                    :
+                    <>
+                        <article className={cn(s['basic-wrapper__left'], dimStyle.dimWrapper)}>
+                            <ChatSidebar className={s['chat-sidebar__desktop']}/>
+                        </article>
+                        <article className={cn(s['basic-wrapper__right'], dimStyle.dimWrapper)}>
+                            <Outlet/>
+                        </article>
+                    </>
+                }
+            </div>
+            <ModalRoot/>
+        </>
     );
 };
 
