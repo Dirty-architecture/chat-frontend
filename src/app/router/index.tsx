@@ -16,16 +16,16 @@ const router = createBrowserRouter([
         element: <RegistrationRoute/>,
     },
     {
-        path: ROUTER_PATH.CHAT,
-        element: <ChatRoute/>,
-    },
-    {
         element: <BasicWrapper/>,
         children: [
             {
                 path: ROUTER_PATH.HOME,
                 element: <NotOpenChat/>
-            }
+            },
+            {
+                path: ROUTER_PATH.CHAT,
+                element: <ChatRoute/>,
+            },
         ]
     },
 ]);

@@ -1,0 +1,31 @@
+
+.chat-item {
+  display: flex;
+  width: 100%;
+}
+
+.chat-item--other {
+  justify-content: flex-start;
+}
+
+.chat-item--me {
+  justify-content: flex-end;
+}
+
+.chat-item__bubble {
+  padding: 12px; // p-3
+  margin: 8px; // m-2
+  max-width: min(20rem, 100%);
+  border-radius: 0.5rem; // rounded-lg
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.chat-item__bubble--me {
+  background-color: $my-message-bg;
+}
+
+.chat-item__bubble--other {
+  background-color: $other-message-bg;
+}

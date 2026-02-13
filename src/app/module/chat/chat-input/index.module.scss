@@ -1,0 +1,10 @@
+.chat__bottombar {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+}
+
+.chat__input {
+  flex-grow: 1;
+}

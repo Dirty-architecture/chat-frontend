@@ -6,10 +6,11 @@ import type {IInputProps} from "./interface.ts";
 const Input = ({
                    className,
                    title,
+                   labelClassName,
                    ...props
                }: IInputProps): ReactNode => {
     return (
-        <label className={style.inputWrapper}>
+        <label className={[style.inputWrapper, labelClassName].join(' ')}>
             {title}
             <input className={[style.input, className].join(' ')} {...props}/>
         </label>

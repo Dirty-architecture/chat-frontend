@@ -5,7 +5,7 @@ import style from './index.module.scss'
 const NotOpenChat = (): ReactNode => {
     return (
         <div className={style.noOpenChat}>
-            <p className={style.text}>Выберите чат слевой стороны чтоб начать общение <ChatCenteredDotsIcon/></p>
+            <p className={style.text}>Выберите чат слева, чтоб начать общение <ChatCenteredDotsIcon/></p>
         </div>
     );
 };
