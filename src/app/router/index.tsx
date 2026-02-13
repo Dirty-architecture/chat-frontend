@@ -4,7 +4,7 @@ import {AuthorizationRoute} from "@/app/module/user/case/authoriztion";
 import RegistrationRoute from "@/app/module/user/case/registration/route.tsx";
 import ChatRoute from "@/app/module/chat/route.tsx";
 import {BasicWrapper} from "@/app/module/basic-structure/basic-wrapper";
-import {NotOpenChat} from "@/app/module/basic-structure/case/chat-content";
+import MainRoute from "@/app/module/main/route.tsx";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ROUTER_PATH.HOME,
-                element: <NotOpenChat/>
+                element: <MainRoute/>
             },
             {
                 path: ROUTER_PATH.CHAT,

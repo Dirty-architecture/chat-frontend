@@ -1,18 +1,32 @@
 import type {ReactNode} from 'react';
 import {Outlet} from "react-router";
-import style from './index.module.scss'
+import s from './index.module.scss'
 import dimStyle from 'ui/dim-wrapper/index.module.scss'
-import ChatSidebar from "@/app/module/basic-structure/case/chat-sidebar";
+import {useMediaQuery} from "@/app/utils/useMediaQuery.ts";
+import {BREAKPOINTS} from "@/app/common/const/breakpoints.ts";
+import ChatSidebar from "@/app/module/general/chat-sidebar";
+import cn from "@/app/utils/cn.ts";
 
 const BasicWrapper = (): ReactNode => {
+    const isTablet = useMediaQuery(`(max-width: ${BREAKPOINTS.laptop}px)`);
+    console.log(isTablet)
+
     return (
-        <div className={style.basicWrapper}>
-            <article className={[style.leftSide, dimStyle.dimWrapper].join(' ')}>
-                <ChatSidebar/>
-            </article>
-            <article className={[style.rightSide, dimStyle.dimWrapper].join(' ')}>
-                <Outlet/>
-            </article>
+        <div className={s['basic-wrapper']}>
+            {isTablet ?
+                <article className={cn(s['basic-wrapper__tablet'], dimStyle.dimWrapper)}>
+                    <Outlet/>
+                </article>
+                :
+                <>
+                    <article className={cn(s['basic-wrapper__left'], dimStyle.dimWrapper)}>
+                        <ChatSidebar className={s['chat-sidebar__desktop']}/>
+                    </article>
+                    <article className={cn(s['basic-wrapper__right'], dimStyle.dimWrapper)}>
+                        <Outlet/>
+                    </article>
+                </>
+            }
         </div>
     );
 };
