@@ -41,12 +41,13 @@
 }
 
 .icon-button--primary {
-  background-color: #111827;
+  background-color: $accent-light;
   color: #ffffff;
 }
 
 .icon-button--primary:hover {
-  background-color: #0b1220;
+  background-color: $accent-approximate-light;
+
 }
 
 .icon-button--ghost {

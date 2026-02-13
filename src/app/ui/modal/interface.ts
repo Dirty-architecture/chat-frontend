@@ -12,8 +12,8 @@ interface IModalProps {
 
     closeOnOverlayClick?: boolean;
     closeOnEsc?: boolean;
-};
-
+}
+ 
 
 export type {
     IModalProps
