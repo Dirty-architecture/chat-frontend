@@ -12,8 +12,8 @@ const ChatItem = ({body, login, picture, id}: IChatItemProps): ReactNode => {
             <Avatar className={s['chat-item__avatar']} src={picture || undefined} fallback={login.slice(0, 2)}
                     alt="" loading='lazy'/>
             <div className={s['chat-item__content']}>
-                <p className={s['chat-item__login']}>{login}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                <p className={s['chat-item__text']}>{body}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <p className={s['chat-item__login']}>{login}</p>
+                <p className={s['chat-item__text']}>{body}</p>
             </div>
         </Link>
     );

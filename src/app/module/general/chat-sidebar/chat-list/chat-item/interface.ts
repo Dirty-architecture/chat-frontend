@@ -1,9 +1,6 @@
-import type {IMessageEntity} from "@/domain/message/interface/entity.ts";
-import type {IUserEntity} from "@/domain/user/interface/entity.ts";
+import type {IChatListItemDto} from "@/domain/chat/sidebar/interface/dto.ts";
 
-type IChatItemProps =
-    Pick<IMessageEntity, 'id' | 'body' | 'createdAt' | "editedAt">
-    & Pick<IUserEntity, 'login' | 'picture'>
+type IChatItemProps = IChatListItemDto
 
 export type {
     IChatItemProps
