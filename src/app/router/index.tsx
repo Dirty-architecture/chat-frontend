@@ -1,10 +1,10 @@
 import {createBrowserRouter} from "react-router";
-import {ROUTER_PATH} from "@/app/common/const/router.ts";
+import {ROUTER_PATH} from "@/app/common/const";
 import {AuthorizationRoute} from "@/app/module/user/case/authoriztion";
-import RegistrationRoute from "@/app/module/user/case/registration/route.tsx";
-import ChatRoute from "@/app/module/chat/route.tsx";
+import RegistrationRoute from "@/app/module/user/case/registration";
+import ChatRoute from "@/app/module/chat";
 import {BasicWrapper} from "@/app/module/basic-structure/basic-wrapper";
-import MainRoute from "@/app/module/main/route.tsx";
+import MainRoute from "@/app/module/main";
 
 const router = createBrowserRouter([
     {

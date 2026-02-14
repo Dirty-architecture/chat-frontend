@@ -28,5 +28,41 @@ export default defineConfig({
         `
             }
         }
-    }
+    },
+
+    build: {
+        rolldownOptions: {
+            output: {
+                advancedChunks: {
+                    groups: [
+                        {
+                            name(moduleId) {
+                                if (!moduleId.includes('node_modules')) return null;
+
+                                // react ecosystem
+                                if (moduleId.includes('/react/') || moduleId.includes('/react-dom/')) return 'vendor-react';
+
+                                // router
+                                if (moduleId.includes('/react-router/')) return 'vendor-router';
+
+                                // data fetching + virtualization
+                                if (moduleId.includes('/@tanstack/react-query/')) return 'vendor-react-query';
+                                if (moduleId.includes('/@tanstack/react-virtual/')) return 'vendor-react-virtual';
+
+                                // state + forms
+                                if (moduleId.includes('/zustand/')) return 'vendor-zustand';
+                                if (moduleId.includes('/react-hook-form/')) return 'vendor-react-hook-form';
+
+                                // icons / styles utils
+                                if (moduleId.includes('/@phosphor-icons/')) return 'vendor-icons';
+                                if (moduleId.includes('/modern-normalize/')) return 'vendor-normalize';
+
+                                return 'vendor-misc';
+                            },
+                        },
+                    ],
+                },
+            },
+        },
+    },
 });

@@ -38,13 +38,13 @@ const Modal = ({
             aria-modal="true"
         >
             <DimWrapper
-                className={cn(styles["modal__content"], contentClassName)}
+                className={cn(styles["modal-content"], contentClassName)}
                 onMouseDown={handleContentMouseDown}
             >
-                <div className={styles["modal__header"]}>
-                    {title ? <div className={styles["modal__title"]}>{title}</div> : <div/>}
+                <div className={styles["modal-header"]}>
+                    {title ? <div className={styles["modal-title"]}>{title}</div> : <div/>}
                     <IconButton
-                        className={styles["modal__close-btn"]}
+                        className={styles["modal-close__btn"]}
                         type="button"
                         onClick={onClose}
                         aria-label="Close modal"
@@ -53,7 +53,7 @@ const Modal = ({
                     </IconButton>
                 </div>
 
-                <div className={styles["modal__body"]}>
+                <div className={styles["modal-body"]}>
                     {children}
                 </div>
             </DimWrapper>
