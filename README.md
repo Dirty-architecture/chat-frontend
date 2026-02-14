@@ -93,6 +93,6 @@ npm run build
 - Блок — независимая сущность интерфейса:
   block
 - Элемент — часть блока, не существует отдельно:
-  block__element
+  block-element
 - Модификатор — состояние/вариация блока или элемента:
-  block--modifier или block__element--modifier
+  block__modifier или block-element__modifier
