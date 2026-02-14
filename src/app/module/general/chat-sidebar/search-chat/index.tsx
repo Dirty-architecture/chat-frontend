@@ -3,7 +3,7 @@ import Input from "ui/input";
 import style from './index.module.scss'
 import {IconButton} from "ui/icon-button";
 import {ListIcon} from "@phosphor-icons/react";
-import {useModalStore} from "@/app/common/store";
+import {useModalStore} from "@/app/common/store/modal";
 import SettingsModal from "@/app/module/general/modal/settings";
 
 const SearchChat = (): ReactNode => {
@@ -13,8 +13,7 @@ const SearchChat = (): ReactNode => {
     const handleOpenSettings = () => {
         show({
             title: "Настройки",
-            content: <SettingsModal/>,
-            type: "confirm"
+            content: <SettingsModal/>
         })
     }
     return (

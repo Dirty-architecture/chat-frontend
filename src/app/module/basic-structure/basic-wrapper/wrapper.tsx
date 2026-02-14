@@ -6,7 +6,7 @@ import {useMediaQuery} from "@/app/utils/useMediaQuery.ts";
 import {BREAKPOINTS} from "@/app/common/const/breakpoints.ts";
 import ChatSidebar from "@/app/module/general/chat-sidebar";
 import cn from "@/app/utils/cn.ts";
-import ModalRoot from "@/app/common/store/component.tsx";
+import ModalRoot from "@/app/common/store/modal/component.tsx";
 
 const BasicWrapper = (): ReactNode => {
     const isTablet = useMediaQuery(`(max-width: ${BREAKPOINTS.laptop}px)`);

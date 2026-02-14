@@ -1,15 +1,12 @@
 import type {ReactNode} from "react";
 
-type IModalType = "default" | "confirm" | "custom" | null;
 
 interface IModalState {
-    type: IModalType;
     title?: ReactNode;
     content?: ReactNode;
     open: boolean;
 
     show: (params: {
-        type?: IModalType;
         title?: ReactNode;
         content?: ReactNode;
     }) => void;
@@ -18,4 +15,4 @@ interface IModalState {
 }
 
 
-export type {IModalState, IModalType}
+export type {IModalState}

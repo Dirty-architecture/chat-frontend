@@ -1,25 +1,20 @@
-// store/modalStore.ts
 import {create} from "zustand";
 import type {IModalState} from "./interface.ts";
 
 
 const useModalStore = create<IModalState>((set) => ({
-    type: null,
     title: undefined,
     content: undefined,
     open: false,
 
-    show: ({type = "default", title, content}) =>
+    show: (props) =>
         set({
-            type,
-            title,
-            content,
+            ...props,
             open: true,
         }),
 
     hide: () =>
         set({
-            type: null,
             title: undefined,
             content: undefined,
             open: false,
