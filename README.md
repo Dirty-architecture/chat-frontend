@@ -96,3 +96,11 @@ npm run build
   block-element
 - Модификатор — состояние/вариация блока или элемента:
   block__modifier или block-element__modifier
+
+## Полезные ссылки
+
+* [Vite](https://vitejs.dev/)
+* [React](https://reactjs.org/)
+* [BEM](http://getbem.com/)
+* [ESLint](https://eslint.org/)
+* [clean architecture](https://clean-architecture-coral.vercel.app/)
