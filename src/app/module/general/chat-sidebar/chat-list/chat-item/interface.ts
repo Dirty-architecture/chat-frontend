@@ -1,6 +1,6 @@
-import type {IChatListItemDto} from "@/domain/chat/sidebar/interface/dto.ts";
+import type {IGetAllChatListDto} from "@/domain/chat/sidebar/interface/dto.ts";
 
-type IChatItemProps = IChatListItemDto
+type IChatItemProps = IGetAllChatListDto
 
 export type {
     IChatItemProps

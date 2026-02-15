@@ -2,8 +2,11 @@ import type {IChatListItemDto} from "@/domain/chat/sidebar/interface/dto.ts";
 
 interface IChatListProps {
     data?: IChatListItemDto[]
-    length: number
     isLoading?: boolean
+
+    hasNextPage?: boolean
+    isFetchingNextPage?: boolean
+    fetchNextPage?: () => void
 }
 
 export type {

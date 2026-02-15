@@ -5,8 +5,9 @@ import {IconButton} from "ui/icon-button";
 import {ListIcon} from "@phosphor-icons/react";
 import {useModalStore} from "@/app/common/store/modal";
 import SettingsModal from "@/app/module/general/modal/settings";
+import type {ISearchChatProps} from "./interface.ts";
 
-const SearchChat = (): ReactNode => {
+const SearchChat = ({form}: ISearchChatProps): ReactNode => {
 
     const show = useModalStore((s) => s.show);
 
@@ -19,7 +20,7 @@ const SearchChat = (): ReactNode => {
     return (
         <div className={style['search-wrapper']}>
             <IconButton onClick={handleOpenSettings}><ListIcon/></IconButton>
-            <Input labelClassName={style['search-label']}/>
+            <Input {...form.register('search')} labelClassName={style['search-label']}/>
         </div>
     );
 };

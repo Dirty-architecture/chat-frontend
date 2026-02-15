@@ -37,7 +37,7 @@ import {useEffect, useState} from 'react';
  * - Query задавай строкой в формате CSS: `(max-width: 768px)`, `(prefers-color-scheme: dark)` и т.п.
  * - Хук обновляется автоматически при изменении размера окна (через `matchMedia(...).change`).
  */
-const useMediaQuery = (query: string): boolean => {
+const mediaQuery = (query: string): boolean => {
     const [matches, setMatches] = useState(false);
 
     useEffect(() => {
@@ -53,4 +53,4 @@ const useMediaQuery = (query: string): boolean => {
     return matches;
 }
 
-export {useMediaQuery}
+export {mediaQuery}
