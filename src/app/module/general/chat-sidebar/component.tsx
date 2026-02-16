@@ -3,42 +3,44 @@ import SearchChat from "./search-chat";
 import ChatList from "./chat-list";
 import type {IChatSidebarProps} from "./interface.ts";
 import cn from "@/app/utils/cn.ts";
-import {useGetAllChatSideBarPresenter} from "./case/get-all/presenter.ts";
 import s from './index.module.scss'
 import {useForm, useWatch} from "react-hook-form";
 import type {ISearchChatListPort} from "@/domain/chat/sidebar/interface/port.ts";
-import {useSearchChatSideBarPresenter} from "@/app/module/general/chat-sidebar/case/search/presenter.ts";
+import {useSearchChatSideBarPresenter} from "./case/presenter.ts";
+import ErrorBoundary from "@/app/module/general/chat-sidebar/error-boundary";
 
 const ChatSidebar = ({className}: IChatSidebarProps): ReactNode => {
     const form = useForm<ISearchChatListPort>()
     const search = useWatch({
         control: form.control,
         name: 'search'
-    })
-    const {data: dataGetAll, isLoading: isLoadingGetAll} = useGetAllChatSideBarPresenter();
+    })?.trim()
+
     const {
-        data: dataSearch,
+        data,
+        debouncedSearch,
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
-        isLoading: isLoadingSearch,
+        isLoading,
     } = useSearchChatSideBarPresenter(search);
 
-    const itemsSearch = dataSearch?.pages.flatMap((p) => p.items) ?? [];
-
-    const isSearchMode = Boolean(search);
+    const items = data?.pages.flatMap((page) => page.items) ?? [];
 
     return (
-        <div className={cn(className, s["sidebar-wrapper"])}>
-            <SearchChat form={form}/>
-            <ChatList
-                isLoading={isSearchMode ? isLoadingSearch : isLoadingGetAll}
-                data={isSearchMode ? itemsSearch : dataGetAll?.items}
-                fetchNextPage={isSearchMode ? fetchNextPage : undefined}
-                hasNextPage={isSearchMode ? hasNextPage : undefined}
-                isFetchingNextPage={isSearchMode ? isFetchingNextPage : undefined}
-            />
-        </div>
+        <ErrorBoundary>
+            <div className={cn(className, s["sidebar-wrapper"])}>
+                <SearchChat form={form}/>
+                <ChatList
+                    key={debouncedSearch}
+                    isLoading={isLoading}
+                    data={items}
+                    fetchNextPage={fetchNextPage}
+                    hasNextPage={hasNextPage}
+                    isFetchingNextPage={isFetchingNextPage}
+                />
+            </div>
+        </ErrorBoundary>
     );
 };
 

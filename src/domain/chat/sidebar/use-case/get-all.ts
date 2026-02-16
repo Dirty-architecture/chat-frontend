@@ -1,12 +1,14 @@
-import type {IGetAllChatSideBarUseCase} from "@/domain/chat/sidebar/interface/use-case.ts";
+import type {ISearchChatSideBarUseCase} from "@/domain/chat/sidebar/interface/use-case.ts";
 import {BaseChatSidebarUseCase} from "@/domain/chat/sidebar/common/use-case.ts";
 import type {IGetAllChatListDto} from "@/domain/chat/sidebar/interface/dto.ts";
-import type {IGetAllChatListPort} from "@/domain/chat/sidebar/interface/port.ts";
+import type {ISearchChatListPort} from "@/domain/chat/sidebar/interface/port.ts";
 
-class GetAllChatSideBarUseCase extends BaseChatSidebarUseCase implements IGetAllChatSideBarUseCase {
-    public async execute(port: IGetAllChatListPort): Promise<IGetAllChatListDto> {
+class GetGetAllSideBarUseCase extends BaseChatSidebarUseCase implements ISearchChatSideBarUseCase {
+    public async execute(port: ISearchChatListPort): Promise<IGetAllChatListDto> {
+        if (port.search)
+            return this._repository.search(port)
         return this._repository.getChats(port)
     }
 }
 
-export {GetAllChatSideBarUseCase}
+export {GetGetAllSideBarUseCase}
