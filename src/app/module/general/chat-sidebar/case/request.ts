@@ -28,7 +28,6 @@ const useSearchChatSideBarRequest = (basePort: ISearchChatListPort) => {
             }));
         },
         getNextPageParam: (lastPage) => {
-            console.log('asds')
             return lastPage.hasNext ? lastPage?.cursor : undefined;
         },
 
