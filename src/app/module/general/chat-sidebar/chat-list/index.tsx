@@ -8,6 +8,7 @@ import NavigateToTop from "./navigate-to-top";
 import {useScrolledBelowBlock} from "@/app/utils/is-below.ts";
 import {useScrollToTop} from "@/app/utils/scroll-to-top.ts";
 import {last, toNumber} from "es-toolkit/compat";
+import useFetchNextPage from "@/app/utils/fetch-next-page.ts";
 
 const Y_PADDING = 16;
 const ITEM_SIZE = 48;
@@ -17,7 +18,6 @@ const ROW_ESTIMATE_PX = ITEM_SIZE + Y_PADDING;
 const SCROLL_BELOW_OFFSET_PX = 40;
 const VIRTUAL_OVERSCAN_COUNT = 6;
 
-const FETCH_NEXT_PAGE_THRESHOLD_FROM_END = 3;
 
 const ChatList = ({
                       data,
@@ -42,15 +42,7 @@ const ChatList = ({
 
     const virtualItems = rowVirtualizer.getVirtualItems();
 
-    useEffect(() => {
-        if (!fetchNextPage || !hasNextPage || isFetchingNextPage || !virtualItems.length) return;
-
-        const lastVirtualItem = last(virtualItems);
-        const isNearEnd = toNumber(lastVirtualItem?.index) >= count - FETCH_NEXT_PAGE_THRESHOLD_FROM_END;
-
-        if (isNearEnd) fetchNextPage();
-    }, [virtualItems, count, fetchNextPage, hasNextPage, isFetchingNextPage]);
-
+    useFetchNextPage({count, fetchNextPage, hasNextPage, isFetchingNextPage, virtualItems})
 
     if (isLoading) return <ChatListLoading/>;
 

@@ -7,7 +7,8 @@ const SpinIcon = ({
                       paused = false,
                       className,
                       title,
-                      children, ...props
+                      children,
+                      ...props
                   }: ISpinIconProps) => {
 
     return (

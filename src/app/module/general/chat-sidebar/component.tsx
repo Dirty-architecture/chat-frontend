@@ -11,6 +11,7 @@ import ErrorBoundary from "@/app/module/general/chat-sidebar/error-boundary";
 
 const ChatSidebar = ({className}: IChatSidebarProps): ReactNode => {
     const form = useForm<ISearchChatListPort>()
+
     const search = useWatch({
         control: form.control,
         name: 'search'
