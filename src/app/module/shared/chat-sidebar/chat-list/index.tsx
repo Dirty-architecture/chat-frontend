@@ -32,6 +32,7 @@ const ChatList = ({
     const scrollToBelow = useScrollToTop(parentRef as RefObject<HTMLElement>)
 
 
+    // eslint-disable-next-line react-hooks/incompatible-library
     const rowVirtualizer = useVirtualizer({
         count,
         getScrollElement: () => parentRef.current,
