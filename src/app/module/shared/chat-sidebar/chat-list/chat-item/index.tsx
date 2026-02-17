@@ -4,7 +4,7 @@ import s from './index.module.scss'
 import {Link} from "react-router";
 import {ROUTER_PATH} from "@/app/common/const/router.ts";
 import {replaceArgs} from "@/app/utils/replace-args.ts";
-import type {IChatItemProps} from "@/app/module/general/chat-sidebar/chat-list/chat-item/interface.ts";
+import type {IChatItemProps} from "./interface.ts";
 
 const ChatItem = memo(({body, login, picture, id, transformY}: IChatItemProps): ReactNode => {
     return (

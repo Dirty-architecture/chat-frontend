@@ -4,7 +4,7 @@ import style from './index.module.scss'
 import {IconButton} from "ui/icon-button";
 import {ListIcon} from "@phosphor-icons/react";
 import {useModalStore} from "@/app/common/store/modal";
-import SettingsModal from "@/app/module/general/modal/settings";
+import SettingsModal from "./settings";
 import type {ISearchChatProps} from "./interface.ts";
 
 const SearchChat = ({form}: ISearchChatProps): ReactNode => {

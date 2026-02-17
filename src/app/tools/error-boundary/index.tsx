@@ -1,41 +1,10 @@
-import React from "react";
+import {Component, type ErrorInfo} from "react";
 import s from './index.module.scss'
 import {IconButton} from "ui/icon-button";
 import {ArrowClockwiseIcon} from "@phosphor-icons/react";
+import type {IErrorBoundaryProps, IErrorBoundaryState} from "./interface.ts";
 
-type IFallbackRender = (args: {
-    error: unknown;
-    resetErrorBoundary: () => void;
-}) => React.ReactNode;
-
-interface IErrorBoundaryProps {
-    children: React.ReactNode;
-
-    /**
-     * Можно передать готовый ReactNode (например, <div>Упс</div>)
-     * или функцию-рендер, если нужно показать детали ошибки / кнопку "Повторить".
-     */
-    fallback?: React.ReactNode | IFallbackRender;
-
-    /**
-     * Вызывается, когда boundary поймал ошибку.
-     * Удобно для логирования.
-     */
-    onError?: (error: unknown, info: React.ErrorInfo) => void;
-
-    /**
-     * Если значение изменилось — boundary сбросит ошибку и попробует отрендериться заново.
-     * Например: resetKey={location.pathname}
-     */
-    resetKey?: string | number;
-}
-
-interface IErrorBoundaryState {
-    hasError: boolean;
-    error: unknown;
-}
-
-class ErrorBoundary extends React.Component<
+class ErrorBoundary extends Component<
     IErrorBoundaryProps,
     IErrorBoundaryState
 > {
@@ -48,7 +17,7 @@ class ErrorBoundary extends React.Component<
         return {hasError: true, error};
     }
 
-    componentDidCatch(error: unknown, info: React.ErrorInfo) {
+    componentDidCatch(error: unknown, info: ErrorInfo) {
         this.props.onError?.(error, info);
     }
 

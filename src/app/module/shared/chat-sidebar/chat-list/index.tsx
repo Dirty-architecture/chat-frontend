@@ -1,14 +1,13 @@
-import {type ReactNode, type RefObject, useEffect, useRef} from 'react';
+import {type ReactNode, type RefObject, useRef} from 'react';
 import {useVirtualizer} from '@tanstack/react-virtual';
 import ChatItem from './chat-item';
 import style from './index.module.scss';
 import type {IChatListProps} from './interface.ts';
-import ChatListLoading from "../../loading";
 import NavigateToTop from "./navigate-to-top";
 import {useScrolledBelowBlock} from "@/app/utils/is-below.ts";
 import {useScrollToTop} from "@/app/utils/scroll-to-top.ts";
-import {last, toNumber} from "es-toolkit/compat";
 import useFetchNextPage from "@/app/utils/fetch-next-page.ts";
+import ChatListLoading from "@/app/tools/loading";
 
 const Y_PADDING = 16;
 const ITEM_SIZE = 48;

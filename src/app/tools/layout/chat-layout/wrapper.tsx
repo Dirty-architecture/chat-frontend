@@ -4,7 +4,7 @@ import s from './index.module.scss'
 import dimStyle from 'ui/dim-wrapper/index.module.scss'
 import {useMediaQuery} from "@/app/utils/media-query.ts";
 import {BREAKPOINTS} from "@/app/common/const/breakpoints.ts";
-import ChatSidebar from "@/app/module/general/chat-sidebar";
+import ChatSidebar from "@/app/module/shared/chat-sidebar";
 import cn from "@/app/utils/cn.ts";
 import ModalRoot from "@/app/common/store/modal/component.tsx";
 
@@ -13,7 +13,7 @@ const BasicWrapper = (): ReactNode => {
 
     return (
         <>
-            <div className={s['basic-wrapper']}>
+            <div className={s['chat-layout']}>
                 {isTablet ?
                     <article className={cn(s['basic-wrapper__tablet'], dimStyle.dimWrapper)}>
                         <Outlet/>

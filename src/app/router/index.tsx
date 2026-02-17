@@ -3,7 +3,7 @@ import {ROUTER_PATH} from "@/app/common/const";
 import {AuthorizationRoute} from "@/app/module/user/case/authoriztion";
 import RegistrationRoute from "@/app/module/user/case/registration";
 import ChatRoute from "@/app/module/chat";
-import {BasicWrapper} from "@/app/module/basic-structure/basic-wrapper";
+import {BasicWrapper} from "@/app/tools/layout/chat-layout";
 import MainRoute from "@/app/module/main";
 
 const router = createBrowserRouter([

@@ -29,7 +29,11 @@ export default defineConfig({
             }
         }
     },
+    server: {
+        allowedHosts: true,
+        cors: true,
 
+    },
     build: {
         rolldownOptions: {
             output: {

@@ -7,7 +7,7 @@ import s from './index.module.scss'
 import {useForm, useWatch} from "react-hook-form";
 import type {ISearchChatListPort} from "@/domain/chat/sidebar/interface/port.ts";
 import {useSearchChatSideBarPresenter} from "./case/presenter.ts";
-import ErrorBoundary from "@/app/module/general/chat-sidebar/error-boundary";
+import ErrorBoundary from "@/app/tools/error-boundary";
 
 const ChatSidebar = ({className}: IChatSidebarProps): ReactNode => {
     const form = useForm<ISearchChatListPort>()
