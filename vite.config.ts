@@ -3,11 +3,15 @@ import react from '@vitejs/plugin-react'
 import tsconfigPaths from "vite-tsconfig-paths";
 import path from 'path';
 import {pathToFileURL} from "node:url";
-
+import mkcert from "vite-plugin-mkcert";
 // https://vite.dev/config/
 
 export default defineConfig({
-    plugins: [react(), tsconfigPaths()],
+    plugins: [
+        react(),
+        tsconfigPaths(),
+        process.env.HTTPS ? mkcert() : []
+    ],
     css: {
         preprocessorOptions: {
             scss: {
@@ -30,9 +34,10 @@ export default defineConfig({
         }
     },
     server: {
-        allowedHosts: true,
-        cors: true,
-
+        host: true, // == 0.0.0.0
+        port: 5173,
+        strictPort: true,
+        allowedHosts: true
     },
     build: {
         rolldownOptions: {
