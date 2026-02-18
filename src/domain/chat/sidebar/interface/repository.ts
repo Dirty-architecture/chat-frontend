@@ -1,7 +1,9 @@
-import type {IChatListItemDto} from "@/domain/chat/sidebar/interface/dto.ts";
+import type {IGetAllChatListDto} from "@/domain/chat/sidebar/interface/dto.ts";
+import type {IGetAllChatListPort, ISearchChatListPort} from "./port.ts";
 
 interface IChatSidebarRepository {
-    getChats: () => Promise<IChatListItemDto[]>
+    search: (props: ISearchChatListPort) => Promise<IGetAllChatListDto>
+    getChats: (port: IGetAllChatListPort) => Promise<IGetAllChatListDto>
 }
 
 export type {IChatSidebarRepository}

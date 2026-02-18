@@ -1,0 +1,26 @@
+.spin-icon {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.spin-icon__svg {
+  display: inline-flex;
+  animation: spin-icon__rotate 1s linear infinite;
+
+}
+
+.spin-icon--paused {
+  .spin-icon__svg {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes spin-icon__rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

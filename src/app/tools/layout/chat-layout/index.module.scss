@@ -1,0 +1,51 @@
+.basic-wrapper {
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  padding: 8px;
+  box-sizing: border-box;
+
+  @media (max-width: $media-tablet) {
+    gap: 12px;
+  }
+}
+
+.basic-wrapper__left {
+  grid-column: span 4;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+
+.chat-sidebar__desktop {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 0;
+
+}
+
+.basic-wrapper__right {
+  grid-column: span 8;
+  width: 100%;
+  height: 100%;
+
+  min-height: 0;
+
+}
+
+.basic-wrapper__tablet {
+  grid-column: span 12;
+  width: 100%;
+  height: 100%;
+
+  min-height: 0;
+
+}
