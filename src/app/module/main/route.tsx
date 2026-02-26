@@ -1,7 +1,7 @@
 import {type ReactNode} from 'react';
-import {useMediaQuery} from "@/app/utils/useMediaQuery.ts";
+import {useMediaQuery} from "@/app/utils/media-query.ts";
 import {BREAKPOINTS} from "@/app/common/const/breakpoints.ts";
-import ChatSidebar from "@/app/module/general/chat-sidebar";
+import ChatSidebar from "@/app/module/shared/chat-sidebar";
 import {NotOpenChat} from "./not-open-chat";
 import s from './index.module.scss'
 

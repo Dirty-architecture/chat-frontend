@@ -1,15 +1,32 @@
-import type {IChatListItemDto} from "@/domain/chat/sidebar/interface/dto.ts";
-
+import type {IGetAllChatListDto} from "@/domain/chat/sidebar/interface/dto.ts";
+import type {IGetAllChatListPort} from "@/domain/chat/sidebar/interface/port.ts";
 
 class ChatSidebarDB {
-    private chatList: IChatListItemDto[] = this.makeRandomChatList(Math.floor(Math.random() * 1000) + 1);
+    private chatList = this.makeRandomChatList(Math.floor(Math.random() * 1000) + 1);
 
     /** Список чатов (для UI) */
-    public getChatList(): IChatListItemDto[] {
-        return [...this.chatList].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+    public getChatList({cursor, limit}: IGetAllChatListPort): IGetAllChatListDto {
+        const pageSize = Math.max(1, limit ?? 20);
+
+        const startIndex = (() => {
+            if (!cursor) return 0;
+            const idx = this.chatList.findIndex((x) => x.id === cursor);
+            return idx === -1 ? 0 : idx + 1;
+        })();
+
+        const items = this.chatList.slice(startIndex, startIndex + pageSize);
+
+        const hasNext = startIndex + pageSize < this.chatList.length;
+        const nextCursor = hasNext && items.length > 0 ? items[items.length - 1].id : null;
+
+        return {
+            items,
+            hasNext,
+            cursor: nextCursor,
+        };
     }
 
-    private makeRandomChatList(count: number): IChatListItemDto[] {
+    private makeRandomChatList(count: number) {
         const now = Date.now();
 
         const logins = [
@@ -47,18 +64,14 @@ class ChatSidebarDB {
         return Array.from({length: count}, (_, i) => {
             const login = randomFrom(logins) + (Math.random() < 0.25 ? String(randomInt(2, 99)) : "");
             const minutesAgo = randomInt(1, 60 * 24 * 7); // до недели назад
-            const createdAt = new Date(now - minutesAgo * 60_000 - i * 5_000);
-
-            const wasEdited = Math.random() < 0.2;
-            const editedAt = wasEdited ? new Date(createdAt.getTime() + randomInt(1, 120) * 60_000) : null;
+            const lastSeenAt = new Date(now - minutesAgo * 60_000 - i * 5_000);
 
             return {
                 id: makeId(),
                 body: randomFrom(messages),
-                createdAt,
-                editedAt,
                 login,
                 picture: Math.random() < 0.15 ? null : makeAvatar(login),
+                lastSeenAt,
             };
         });
     }
