@@ -13,6 +13,7 @@
   ```bash
   node -v
   ```
+
 * **npm** (обычно устанавливается вместе с Node.js) или **yarn / pnpm**
 
 Рекомендуется использовать последнюю LTS‑версию Node.js.
@@ -22,7 +23,7 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/jakiichu/movie-catalog-react
+git clone https://github.com/Dirty-architecture/chat-frontend.git
 cd only
 ```
 
